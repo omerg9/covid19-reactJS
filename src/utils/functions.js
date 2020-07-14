@@ -57,3 +57,7 @@ export const getTopTenCases = (data) => {
         }
       })
   }
+
+  export const getChartMargin = () => {
+    return {top: 10, right: 30, left: 15, bottom: 0}
+  }

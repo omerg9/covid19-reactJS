@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import {LineChart, Line, Tooltip, Legend,
   XAxis, YAxis, CartesianGrid, ResponsiveContainer} from 'recharts';
-import {getCovidData, getTopTenCases, getCountryData} from '../utils/functions'
+import {getCovidData, getCountryData, getChartMargin} from '../utils/functions'
 import DataVisualization from './includes/DataVisualization';
-import tableColumnsData from '../utils/tableColumnsData'
+import tableColumnsOptions from '../utils/tableColumnsOptions'
 
 const SingleCountry = (props) => {
   const [data, setData] = useState([])
@@ -29,20 +29,12 @@ const SingleCountry = (props) => {
     <DataVisualization 
       topTenCases={countryData} 
       defaultSorted={defaultSorted} 
-      columns={tableColumnsData('singleCountry')} 
+      columns={tableColumnsOptions('singleCountry')} 
       title={`Confirmed cases in ${props.match.params.countryName}`}
       keyField={'confirmed_cases_formatted'}
     >
-      <ResponsiveContainer maxHeight={500}>
-        <LineChart
-          width={500}
-          height={300}
-          data={countryData}
-          margin={{
-            top: 5, right: 30, left: 20, bottom: 5,
-          }}
-          
-        >
+      <ResponsiveContainer>
+        <LineChart data={countryData} margin={getChartMargin()}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="day"/>
           <YAxis tickFormatter={tick => tick.toLocaleString()} domain={countryData[countryData.length-1] && countryData[countryData.length-1].confirmed_cases?[0, countryData[countryData.length-1].confirmed_cases]:[0, 100000]}/>

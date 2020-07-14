@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import 'react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css';
-
+import {ResponsiveContainer} from 'recharts';
 export default function DataVisualization({topTenCases, children, defaultSorted, columns, title, keyField}) {
     const rowEvents = {
       onClick: (e, row, rowIndex) => {
@@ -34,9 +34,11 @@ export default function DataVisualization({topTenCases, children, defaultSorted,
             }
           </div>
           <div className="subSectionWrapper chartWrapper">
+            <ResponsiveContainer height={400}>
             {
                 children
             }
+            </ResponsiveContainer>
           </div>
         </section>
       </>

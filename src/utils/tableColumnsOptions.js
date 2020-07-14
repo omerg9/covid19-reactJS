@@ -10,12 +10,12 @@ export default (page) => {
         text: 'Confirmed Cases',
         sort:true,
         sortFunc: (a, b, order) => {
-          let fA = parseFloat(a.split(',').join(''));
-          let fB = parseFloat(b.split(',').join(''));
+          let a1 = parseFloat(a.split(',').join(''));
+          let b1 = parseFloat(b.split(',').join(''));
           if (order === 'asc') {
-            return fA - fB;
+            return a1 - b1;
           }
-          return fB - fA; // desc
+          return b1 - a1; // desc
         }
       }];
     case 'singleCountry':
@@ -28,12 +28,12 @@ export default (page) => {
         text: 'Confirmed Cases',
         sort:true,
         sortFunc: (a, b, order) => {
-          let fA = parseFloat(a.split(',').join(''));
-          let fB = parseFloat(b.split(',').join(''));
+          let a1 = parseFloat(a.split(',').join(''));
+          let b1 = parseFloat(b.split(',').join(''));
           if (order === 'asc') {
-            return fA - fB;
+            return a1 - b1;
           }
-          return fB - fA; // desc
+          return b1 - a1; // desc
         }
       }];      
     default:
@@ -66,12 +66,12 @@ export default (page) => {
           text: 'Maximum cases',
           sort:true,
           sortFunc: (a, b, order) => {
-            let fA = parseFloat(a.split(',').join(''));
-            let fB = parseFloat(b.split(',').join(''));
+            let a1 = parseFloat(a.split(',').join(''));
+            let b1 = parseFloat(b.split(',').join(''));
             if (order === 'asc') {
-              return fA - fB;
+              return a1 - b1;
             }
-            return fB - fA; // desc
+            return b1 - a1; // desc
           }
         }];
     }

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import {BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer} from 'recharts';
-import {getCovidData, getTopTenCases} from '../utils/functions'
+import {getCovidData, getTopTenCases, getChartMargin} from '../utils/functions'
 import DataVisualization from './includes/DataVisualization';
-import tableColumnsData from '../utils/tableColumnsData'
+import tableColumnsOptions from '../utils/tableColumnsOptions'
 
 const TopCases = () => {
   const [data, setData] = useState([])
@@ -26,13 +26,12 @@ const TopCases = () => {
     <DataVisualization 
       topTenCases={topTenCases} 
       defaultSorted={defaultSorted} 
-      columns={tableColumnsData('topCases')} 
+      columns={tableColumnsOptions('topCases')} 
       title={'Confirmed cases (top countries)'}
       keyField={'confirmed_cases_formatted'}
     >
-      <ResponsiveContainer maxHeight={500}>
-        <BarChart height={800} data={topTenCases}  isAnimationActive={false}
-              margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+      <ResponsiveContainer>
+        <BarChart data={topTenCases} margin={getChartMargin()}>
           <CartesianGrid strokeDasharray="3 3"/>
           <XAxis dataKey="geo_id"/>
           <YAxis type="number" domain={[0, 3000000]} tickFormatter={tick => tick.toLocaleString()}/>
