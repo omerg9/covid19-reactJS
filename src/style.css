@@ -1,0 +1,66 @@
+body{
+    font-size: 14px;
+    font-family: "Lato",sans-serif;
+    font-weight: 400;
+}
+
+h1, h4{
+    text-align:center;
+    color:#555
+}
+
+#appName{
+    font-size:1.5rem;    
+    padding-top: 3px;
+    margin-right: 20px;
+}
+
+#basic-navbar-nav, section{
+    max-width: 1200px;
+    margin:0 auto
+}
+
+.cnName span{
+    font-weight:bold
+}
+
+section{
+    display:flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.tableWrapper{
+    margin: 0 40px 0 0;
+    min-width: 300px;
+}
+
+@media (max-width: 500px){
+    .subSectionWrapper{
+        max-width:320px;
+        margin:0 auto 30px
+    }
+}
+
+@media (max-width: 1023px){
+    section{
+        padding: 0.5rem 1rem;
+    }
+}
+
+.subSectionWrapper{
+    flex:1;
+    min-width: 300px;
+}
+
+.subSectionTitle{
+    margin-top: 20px;
+}
+
+.react-bootstrap-table-page-btns-ul{
+    float:left
+}
+
+.col-md-6.col-xs-6.col-sm-6.col-lg-6:not(.react-bootstrap-table-pagination-list){
+    display:none
+}
