@@ -6,4 +6,7 @@ ReactJS based, with react router, recharts, react-bootstrap
 2. NPM i
 3. NPM start
 
+### Example Usage
+![](http://univo.co.il/1.gif)
+
 
