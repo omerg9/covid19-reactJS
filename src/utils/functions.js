@@ -46,8 +46,8 @@ export const getTopTenCases = (data) => {
       
   }
 
-  export const getCountryData = (data, id) => {
-    return data
+  export const getCountryData = (data, id, setCountryData) => {
+    const countryData = data
       .filter(el=>el.geo_id===id)
       .map(el=>{
         return{
@@ -56,6 +56,7 @@ export const getTopTenCases = (data) => {
           country:el.countries_and_territories.split('_').join(' ')
         }
       })
+      setCountryData(countryData)
   }
 
   export const getChartMargin = () => {
