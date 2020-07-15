@@ -7,15 +7,19 @@ import tableColumnsOptions from '../utils/tableColumnsOptions'
 const TopIncreaseRate = () => {
   const [data, setData] = useState([])
   const [topTenCases, setTopTen] =useState([])
-  
-  useEffect(() => {
-    if(data.length===0){
-      getCovidData(setData)
-    }
-    if(topTenCases.length===0){
-      setTopTen(getIncreaseRates(data, false))
-    }
-  },[data, topTenCases.length])
+
+  useEffect(()=>{
+      getCovidData().then((data) => {
+          setData(data);
+      });
+  }, []);
+
+  useEffect(()=>{
+      if (!topTenCases.length && data.length) {
+          const newTopTen = getIncreaseRates(data, false);
+          setTopTen(newTopTen);
+      }
+  }, [data, topTenCases.length])
 
   const defaultSorted = [{
     dataField: 'increaseRate',

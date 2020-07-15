@@ -7,15 +7,19 @@ import tableColumnsOptions from '../utils/tableColumnsOptions'
 const TopCases = () => {
   const [data, setData] = useState([])
   const [topTenCases, setTopTen] =useState([])
-  
-  useEffect(() => {
-    if(data.length===0){
-      getCovidData(setData)
-    }
-    if(topTenCases.length===0){
-      setTopTen(getTopTenCases(data))
-    }
-  },[data, topTenCases.length])
+
+  useEffect(()=>{
+      getCovidData().then((data) => {
+          setData(data);
+      });
+  }, []);
+
+  useEffect(()=>{
+      if (!topTenCases.length && data.length) {
+          const newTopTen = getTopTenCases(data);
+          setTopTen(newTopTen);
+      }
+  }, [data, topTenCases.length])
 
   const defaultSorted = [{
     dataField: 'confirmed_cases_formatted',
@@ -34,7 +38,7 @@ const TopCases = () => {
         <CartesianGrid strokeDasharray="3 3"/>
         <XAxis dataKey="geo_id"/>
         <YAxis type="number" domain={[0, 3000000]} tickFormatter={tick => tick.toLocaleString()}/>
-        <Bar dataKey="confirmed_cases" fill="#F7682E" />
+        <Bar dataKey="confirmed_cases" fill="#fa895d" />
       </BarChart>
     </DataVisualization>
   )

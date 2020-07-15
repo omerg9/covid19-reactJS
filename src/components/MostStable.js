@@ -8,14 +8,18 @@ const MostStable = () => {
   const [data, setData] = useState([])
   const [topTenCases, setTopTenCases] =useState([])
   
-  useEffect(() => {
-    if(data.length===0){
-      getCovidData(setData)
-    }
-    if(topTenCases.length===0){
-      setTopTenCases(getIncreaseRates(data, true))
-    }
-  },[data, topTenCases.length])
+  useEffect(()=>{
+    getCovidData().then((data) => {
+        setData(data);
+    });
+  }, []);
+
+  useEffect(()=>{
+      if (!topTenCases.length && data.length) {
+          const newTopTen = getIncreaseRates(data, true);
+          setTopTenCases(newTopTen);
+      }
+  }, [data, topTenCases.length])
 
   const defaultSorted = [{
     dataField: 'increaseRate',

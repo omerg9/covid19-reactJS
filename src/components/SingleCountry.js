@@ -20,7 +20,7 @@ const SingleCountry = (props) => {
             const newCountryData = getCountryData(data, props.match.params.id);
             setCountryData(newCountryData);
         }
-    }, [data, props.match.params.id])
+    }, [data, props.match.params.id, countryData.length])
 
     useEffect(()=>{
         if (!chartMax.length) {

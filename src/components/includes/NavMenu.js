@@ -8,9 +8,8 @@ const NavMenu = () => {
             <Navbar
                 sticky="top"
                 id="navbar"
-                bg="light"
                 expand="lg"
-                className="navbar navbar-expand-lg navbar-light bg-light"
+                className="navbar navbar-expand-lg navbar-light"
                 collapseOnSelect={true}
             >
             <Navbar.Toggle aria-controls="basic-navbar-nav" />

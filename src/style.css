@@ -2,6 +2,7 @@ body{
     font-size: 14px;
     font-family: "Lato",sans-serif;
     font-weight: 400;
+    background-color: #fcfcfd;
 }
 
 h1, h4{
@@ -62,4 +63,21 @@ section{
 
 .react-bootstrap-table-page-btns-ul{
     float: none;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f6fa;
+}
+
+.navbar{
+    background-color:#ffffff;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.page-link{
+    color:#2d7bbd;
+}
+
+.page-item.active .page-link{
+    background-color: #2d7bbd;
+    border-color: #2d7bbd;
 }

@@ -32,7 +32,7 @@ export default function DataVisualization({topTenCases, children, defaultSorted,
               hover={true}
               striped={true}
               rowEvents={rowEvents}
-              pagination={ paginationFactory({hideSizePerPage:true}) }
+              pagination={ paginationFactory({hideSizePerPage:true, color:'#2d7bbd'}) }
               hideSizePerPage={true}
             />
           }
