@@ -5,8 +5,10 @@ ReactJS based, with react router, recharts, react-bootstrap
 ![](http://univo.co.il/1.gif)
 
 ### Installation
-1. Clone or download the repo.
-2. NPM i
-3. NPM start
+Clone or download the repo.
+```
+npm i
+npm start
+```
 
 
