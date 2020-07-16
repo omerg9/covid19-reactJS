@@ -1,13 +1,9 @@
-export const getCovidData = async (setData) => {
+export const getCovidData = async () => {
   const proxy = 'https://cors-anywhere.herokuapp.com/'
   const endPoint = 'https://static-cdn.workiz.com/various/covid-may-jul.json'
   const res = await fetch(proxy + endPoint)//fetch request via proxy, to bypass CORS incompatibility on the client without server setup
   const data = await res.json()
-  if (typeof setData === "function") {
-      setData(data)
-  } else {
-      return data;
-  }
+  return data;
 }
 
 export const getTopTenCases = (data) => {
@@ -49,7 +45,7 @@ export const getIncreaseRates = (data, isStable) => {
 
 }
 
-export const getCountryData = (data, id, setCountryData) => {
+export const getCountryData = (data, id) => {
   const countryData = data
     .filter(el=>el.geo_id===id)
     .map(el=>{
@@ -59,12 +55,7 @@ export const getCountryData = (data, id, setCountryData) => {
         country:el.countries_and_territories.split('_').join(' ')
       }
     })
-
-    if (typeof setCountryData === "function") {
-        setCountryData(countryData);
-    } else {
-        return countryData;
-    }
+    return countryData;
 }
 
 export const getChartMargin = () => {
