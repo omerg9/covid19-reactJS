@@ -1,6 +1,6 @@
 export const getCovidData = async () => {
   const proxy = 'https://cors-anywhere.herokuapp.com/'
-  const endPoint = 'https://static-cdn.workiz.com/various/covid-may-jul.json'
+  const endPoint = 'http://univo.co.il/covid-may-jul.json'
   const res = await fetch(proxy + endPoint)//fetch request via proxy, to bypass CORS incompatibility on the client without server setup
   const data = await res.json()
   return data;
